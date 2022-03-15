@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\MasterClassController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SubClassController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +26,13 @@ Route::post('/store',[ProductController::class,'storeProduct']);
 Route::get('/{productID}/edit', [ProductController::class,'edit']);
 Route::post('/{productID}/update',[ProductController::class,'update']);
 Route::get('/{productID}/delete',[ProductController::class,'delete']);
+
+Route::get('/master-class',[MasterClassController::class, 'index']);
+Route::get('/master-class/create',[MasterClassController::class, 'create']);
+Route::post('/master-class/store',[MasterClassController::class, 'store']);
+
+Route::get('/{masterClassID}/sub-class',[SubClassController::class,'index']);
+Route::get('/{masterClassID}/sub-class/create',[SubClassController::class,'create']);
+Route::post('/{masterClassID}/sub-class/store',[SubClassController::class,'store']);
 
 
